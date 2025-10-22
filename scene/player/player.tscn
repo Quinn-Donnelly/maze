@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjcsjjwn6isui"]
+[gd_scene load_steps=6 format=3 uid="uid://bjcsjjwn6isui"]
 
 [ext_resource type="Script" uid="uid://csw6gojp2h78r" path="res://scene/player/player.gd" id="1_cm2cf"]
 [ext_resource type="Texture2D" uid="uid://d0fk2dggrrpjk" path="res://assets/Tiles/tile_0096.png" id="2_6smn3"]
+[ext_resource type="Script" uid="uid://qkrjqwgoan8n" path="res://scene/player/camera_power.gd" id="3_6smn3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i3pqv"]
 animations = [{
@@ -28,3 +29,6 @@ sprite_frames = SubResource("SpriteFrames_i3pqv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_onrkg")
+
+[node name="CameraPower" type="Node" parent="."]
+script = ExtResource("3_6smn3")
