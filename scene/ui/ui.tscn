@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://di1qbu65xvx2r"]
+
+[ext_resource type="Script" uid="uid://p0bk4le0amwq" path="res://scene/ui/ui.gd" id="1_0nso0"]
+
+[node name="Ui" type="CanvasLayer"]
+script = ExtResource("1_0nso0")
+
+[node name="GameWinLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -11.5
+offset_right = 34.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "You Win!"
