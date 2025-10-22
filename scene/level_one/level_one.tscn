@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://bym3mnkq50od2"]
+[gd_scene load_steps=6 format=4 uid="uid://bym3mnkq50od2"]
 
 [ext_resource type="PackedScene" uid="uid://bjcsjjwn6isui" path="res://scene/player/player.tscn" id="1_yy56t"]
 [ext_resource type="Texture2D" uid="uid://cvsx801lts870" path="res://assets/Tilemap/tilemap.png" id="2_pea55"]
+[ext_resource type="PackedScene" uid="uid://dw2aiifxpi67v" path="res://scene/win_zone/win_zone.tscn" id="3_m84c0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m84c0"]
 texture = ExtResource("2_pea55")
@@ -162,3 +163,6 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="WinZone" parent="." instance=ExtResource("3_m84c0")]
+position = Vector2(429, 241.95258)
