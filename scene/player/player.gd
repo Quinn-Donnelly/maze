@@ -2,7 +2,6 @@ class_name Player
 extends CharacterBody2D
 
 @export var speed: float = 350
-@onready var vision_sprite: Sprite2D = $VisionSprite
 
 func _physics_process(_delta: float) -> void:
 	var direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")

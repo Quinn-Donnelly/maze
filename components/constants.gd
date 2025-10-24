@@ -1,0 +1,3 @@
+extends Node
+
+var VISION_COMPONENT = "VISION_COMPONENT"

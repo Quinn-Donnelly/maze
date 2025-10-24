@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 EventBus="*res://components/event_bus.gd"
 Ui="*res://scene/ui/ui.tscn"
 GameManager="*res://scene/game_manager/game_manager.tscn"
+Constants="*res://components/constants.gd"
 
 [display]
 

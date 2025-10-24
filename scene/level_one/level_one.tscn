@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bym3mnkq50od2"]
+[gd_scene load_steps=10 format=4 uid="uid://bym3mnkq50od2"]
 
 [ext_resource type="Script" uid="uid://2n7mem4vnklw" path="res://components/level.gd" id="1_atiay"]
 [ext_resource type="PackedScene" uid="uid://bjcsjjwn6isui" path="res://scene/player/player.tscn" id="1_yy56t"]
@@ -151,15 +151,6 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_m84c0")
 
-[sub_resource type="Gradient" id="Gradient_8rb3k"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_6c11q"]
-gradient = SubResource("Gradient_8rb3k")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.90654206, 0.11214953)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_efhh8"]
 shader = ExtResource("6_6c11q")
 
@@ -186,12 +177,6 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
-
-[node name="VisionSprite" type="Sprite2D" parent="Player"]
-visible = false
-texture = SubResource("GradientTexture2D_6c11q")
-centered = false
-metadata/_edit_lock_ = true
 
 [node name="LevelCamera" type="Camera2D" parent="."]
 position = Vector2(240, 136.53755)

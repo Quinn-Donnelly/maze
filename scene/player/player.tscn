@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjcsjjwn6isui"]
+[gd_scene load_steps=9 format=3 uid="uid://bjcsjjwn6isui"]
 
 [ext_resource type="Script" uid="uid://csw6gojp2h78r" path="res://scene/player/player.gd" id="1_cm2cf"]
 [ext_resource type="Texture2D" uid="uid://d0fk2dggrrpjk" path="res://assets/Tiles/tile_0096.png" id="2_6smn3"]
 [ext_resource type="Script" uid="uid://qkrjqwgoan8n" path="res://scene/player/camera_power.gd" id="3_6smn3"]
+[ext_resource type="Script" uid="uid://diih2lef04ak7" path="res://scene/fog/vision_component.gd" id="4_5lop3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i3pqv"]
 animations = [{
@@ -17,6 +18,15 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
 radius = 5.0
+
+[sub_resource type="Gradient" id="Gradient_8rb3k"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ajqqa"]
+gradient = SubResource("Gradient_8rb3k")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.90654206, 0.11214953)
 
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -33,3 +43,13 @@ shape = SubResource("CircleShape2D_onrkg")
 
 [node name="CameraPower" type="Node" parent="."]
 script = ExtResource("3_6smn3")
+
+[node name="VisionComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("4_5lop3")
+sprite = NodePath("VisionSprite")
+
+[node name="VisionSprite" type="Sprite2D" parent="VisionComponent"]
+visible = false
+texture = SubResource("GradientTexture2D_ajqqa")
+centered = false
+metadata/_edit_lock_ = true
