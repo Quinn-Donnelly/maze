@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://bym3mnkq50od2"]
+[gd_scene load_steps=8 format=4 uid="uid://bym3mnkq50od2"]
 
 [ext_resource type="Script" uid="uid://2n7mem4vnklw" path="res://components/level.gd" id="1_atiay"]
 [ext_resource type="PackedScene" uid="uid://bjcsjjwn6isui" path="res://scene/player/player.tscn" id="1_yy56t"]
-[ext_resource type="Script" uid="uid://dwgmwj0yvbl0b" path="res://scene/fog/fog.gd" id="2_8rb3k"]
 [ext_resource type="Texture2D" uid="uid://cvsx801lts870" path="res://assets/Tilemap/tilemap.png" id="2_pea55"]
 [ext_resource type="PackedScene" uid="uid://dw2aiifxpi67v" path="res://scene/win_zone/win_zone.tscn" id="3_m84c0"]
-[ext_resource type="Shader" uid="uid://sg8arwff3iwd" path="res://scene/fog/fog_shader.gdshader" id="6_6c11q"]
+[ext_resource type="PackedScene" uid="uid://ck8pwssyo23km" path="res://scene/fog/fog_of_war.tscn" id="5_8rb3k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m84c0"]
 texture = ExtResource("2_pea55")
@@ -151,9 +150,6 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_m84c0")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_efhh8"]
-shader = ExtResource("6_6c11q")
-
 [node name="LevelOne" type="Node2D" node_paths=PackedStringArray("levelCamera")]
 scale = Vector2(1, 0.996063)
 script = ExtResource("1_atiay")
@@ -189,14 +185,6 @@ limit_bottom = 272
 y_sort_enabled = true
 position = Vector2(432, 244.96446)
 
-[node name="FogOfWar" type="Node2D" parent="." node_paths=PackedStringArray("fog_sprite", "tiles", "player")]
-y_sort_enabled = true
-script = ExtResource("2_8rb3k")
-fog_sprite = NodePath("Fog")
+[node name="FogOfWar" parent="." node_paths=PackedStringArray("tiles", "player") instance=ExtResource("5_8rb3k")]
 tiles = NodePath("../TileMapLayer")
 player = NodePath("../Player")
-
-[node name="Fog" type="Sprite2D" parent="FogOfWar"]
-z_index = 1
-material = SubResource("ShaderMaterial_efhh8")
-centered = false
