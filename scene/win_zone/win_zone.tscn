@@ -7,7 +7,7 @@
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ticby"]
 texture = ExtResource("1_27lpl")
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -0.17985725, 8, 0.17985916, 8, 8, -8, 8)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 8, 0.17985916, 8, 4.136751, -8, 4.4964695)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uliaf"]
 texture = ExtResource("2_ticby")
