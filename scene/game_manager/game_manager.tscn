@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddtd28xti7mfe"]
+[gd_scene load_steps=3 format=3 uid="uid://ddtd28xti7mfe"]
 
 [ext_resource type="Script" uid="uid://cca6x6t3xgdg4" path="res://scene/game_manager/game_manager.gd" id="1_1uyid"]
+[ext_resource type="Script" uid="uid://clsdjx0lbberf" path="res://scene/game_manager/dfs_maze_generator.gd" id="2_0462e"]
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_1uyid")
+
+[node name="DFS" type="Node" parent="."]
+script = ExtResource("2_0462e")
