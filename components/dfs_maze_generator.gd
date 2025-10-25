@@ -31,7 +31,6 @@ func generate_dfs_maze(width: int, height: int) -> Array:
 			current.y += dir.y
 			stack.push_front(current)
 			
-	pretty_print_2d_array(grid)
 	return grid
 
 func pretty_print_2d_array(array: Array[Array]) -> void:
@@ -39,5 +38,5 @@ func pretty_print_2d_array(array: Array[Array]) -> void:
 		var row_string = ""
 		for n in row:
 			row_string += "%d," % n
-		row_string = row_string.erase(row_string.length()-1)u
+		row_string = row_string.erase(row_string.length()-1)
 		print(row_string)

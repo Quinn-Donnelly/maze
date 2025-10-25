@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://ma1w0n0ycce2"]
+
+[ext_resource type="Script" uid="uid://2n7mem4vnklw" path="res://components/level.gd" id="1_fe18d"]
+[ext_resource type="TileSet" uid="uid://efed4ie6um2b" path="res://components/game_walls.tres" id="2_tjvy3"]
+[ext_resource type="Script" uid="uid://ca5rv2wuv443y" path="res://scene/level_2/maze_walls.gd" id="3_d4kpu"]
+[ext_resource type="Script" uid="uid://clsdjx0lbberf" path="res://components/dfs_maze_generator.gd" id="4_1ylvq"]
+[ext_resource type="PackedScene" uid="uid://bjcsjjwn6isui" path="res://scene/player/player.tscn" id="5_xwhxf"]
+[ext_resource type="PackedScene" uid="uid://ck8pwssyo23km" path="res://scene/fog/fog_of_war.tscn" id="6_shjdg"]
+
+[node name="LevelTwo" type="Node2D" node_paths=PackedStringArray("levelCamera")]
+script = ExtResource("1_fe18d")
+levelCamera = NodePath("LevelCamera")
+
+[node name="MazeWalls" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_tjvy3")
+script = ExtResource("3_d4kpu")
+
+[node name="DFSMazeGenorator" type="Node" parent="MazeWalls"]
+script = ExtResource("4_1ylvq")
+
+[node name="Player" parent="." instance=ExtResource("5_xwhxf")]
+position = Vector2(24, 32)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 480
+limit_bottom = 272
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="LevelCamera" type="Camera2D" parent="."]
+position = Vector2(240, 136.53755)
+limit_left = 0
+limit_top = 0
+limit_right = 704
+limit_bottom = 704
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="FogOfWar" parent="." node_paths=PackedStringArray("tiles", "player") instance=ExtResource("6_shjdg")]
+tiles = NodePath("../MazeWalls")
+player = NodePath("../Player")
