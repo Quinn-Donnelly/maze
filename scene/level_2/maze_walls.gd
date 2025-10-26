@@ -2,6 +2,7 @@ class_name MazeWalls
 extends TileMapLayer
 
 @onready var mazeGenorator: DFSMazeGenerator = $DFSMazeGenorator
+var winningLocation: Vector2i
 
 func _ready() -> void:
 	var mazeBitArray: Array[Array] = mazeGenorator.generate_dfs_maze(18-1,32-3)
@@ -10,3 +11,9 @@ func _ready() -> void:
 		for col in mazeBitArray[row].size():
 			var cellCords = Vector2(4,3) if mazeBitArray[row][col] == 1 else Vector2(1,4)
 			set_cell(Vector2(row, col), 0, cellCords)
+		
+	winningLocation = mazeGenorator.find_end_routes_greater_than(Vector2(1,1), mazeBitArray, 15).pick_random()
+
+## Returns the global_position of winning location
+func get_winning_location() -> Vector2:
+	return to_global(map_to_local(winningLocation))

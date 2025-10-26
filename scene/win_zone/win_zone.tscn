@@ -1,38 +1,27 @@
-[gd_scene load_steps=8 format=3 uid="uid://dw2aiifxpi67v"]
+[gd_scene load_steps=5 format=3 uid="uid://dw2aiifxpi67v"]
 
-[ext_resource type="Texture2D" uid="uid://co0bum8ggumsn" path="res://assets/Tiles/tile_0065.png" id="1_27lpl"]
 [ext_resource type="Script" uid="uid://c0yqyum4gmxxi" path="res://scene/win_zone/win_zone.gd" id="1_ticby"]
-[ext_resource type="Texture2D" uid="uid://cy5dnew2x2ch6" path="res://assets/Tiles/tile_0066.png" id="2_ticby"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ticby"]
-texture = ExtResource("1_27lpl")
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 8, 0.17985916, 8, 4.136751, -8, 4.4964695)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uliaf"]
-texture = ExtResource("2_ticby")
-0:0/0 = 0
-0:0/0/z_index = -1
-
-[sub_resource type="TileSet" id="TileSet_ymdqr"]
-physics_layer_0/collision_layer = 1
-physics_layer_0/collision_mask = 0
-sources/0 = SubResource("TileSetAtlasSource_ticby")
-sources/1 = SubResource("TileSetAtlasSource_uliaf")
+[ext_resource type="Texture2D" uid="uid://6irvl4piswph" path="res://assets/Tiles/tile_0099.png" id="4_uliaf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uliaf"]
-radius = 21.0
+radius = 16.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_27lpl"]
+size = Vector2(18, 18)
 
 [node name="WinZone" type="Area2D"]
 y_sort_enabled = true
 script = ExtResource("1_ticby")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="TileMapLayer" type="Sprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(-8, 0)
-tile_map_data = PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 1, 0, 0, 0, 0, 0, 0, 0)
-tile_set = SubResource("TileSet_ymdqr")
+texture = ExtResource("4_uliaf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -14)
 shape = SubResource("CircleShape2D_uliaf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_27lpl")
