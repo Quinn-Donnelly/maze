@@ -13,7 +13,7 @@ size = Vector2(18, 18)
 y_sort_enabled = true
 script = ExtResource("1_ticby")
 
-[node name="TileMapLayer" type="Sprite2D" parent="."]
+[node name="CharecterSprite" type="Sprite2D" parent="."]
 y_sort_enabled = true
 texture = ExtResource("4_uliaf")
 
