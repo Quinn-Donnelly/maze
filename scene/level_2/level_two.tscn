@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://2n7mem4vnklw" path="res://components/level.gd" id="1_fe18d"]
 [ext_resource type="PackedScene" uid="uid://dw2aiifxpi67v" path="res://scene/win_zone/win_zone.tscn" id="2_d4kpu"]
-[ext_resource type="TileSet" uid="uid://efed4ie6um2b" path="res://components/game_walls.tres" id="2_tjvy3"]
+[ext_resource type="TileSet" uid="uid://clg8e14qg1g40" path="res://components/game_walls.tres" id="2_tjvy3"]
 [ext_resource type="Script" uid="uid://ca5rv2wuv443y" path="res://scene/level_2/maze_walls.gd" id="3_d4kpu"]
-[ext_resource type="Script" uid="uid://clsdjx0lbberf" path="res://components/dfs_maze_generator.gd" id="4_1ylvq"]
+[ext_resource type="Script" path="res://components/dfs_maze_generator.gd" id="4_1ylvq"]
 [ext_resource type="PackedScene" uid="uid://bjcsjjwn6isui" path="res://scene/player/player.tscn" id="5_xwhxf"]
-[ext_resource type="PackedScene" uid="uid://ck8pwssyo23km" path="res://scene/fog/fog_of_war.tscn" id="6_shjdg"]
+[ext_resource type="PackedScene" path="res://scene/fog/fog_of_war.tscn" id="6_shjdg"]
 
 [node name="LevelTwo" type="Node2D" node_paths=PackedStringArray("levelCamera")]
 script = ExtResource("1_fe18d")
@@ -46,3 +46,6 @@ editor_draw_drag_margin = true
 [node name="FogOfWar" parent="." node_paths=PackedStringArray("tiles", "player") instance=ExtResource("6_shjdg")]
 tiles = NodePath("../MazeWalls")
 player = NodePath("../Player")
+
+[node name="PlayerSpawnLocation" type="Marker2D" parent="."]
+position = Vector2(24, 32)

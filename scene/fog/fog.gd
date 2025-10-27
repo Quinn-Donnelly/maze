@@ -14,15 +14,11 @@ var fog: Image
 var vision_image: Image
 var vision_image_offset: Vector2
 
-func _ready() -> void:
-	_generate_fog()
-	_update_fog()
-
 func _process(_delta: float) -> void:
 	if player.velocity.length():
 		_update_fog()
 	
-func _generate_fog() -> void:
+func generate_fog() -> void:
 	world_dimensions = tiles.get_used_rect().size * tiles.tile_set.tile_size
 	world_position = tiles.get_used_rect().position * tiles.tile_set.tile_size
 
@@ -38,6 +34,7 @@ func _generate_fog() -> void:
 	vision_image = vision_component.getVisionSprite().texture.get_image()
 	vision_image.convert(format)
 	vision_image_offset = vision_image.get_used_rect().size / 2
+	_update_fog()
 
 func _update_fog() -> void:
 	var aligned_position = player.global_position - vision_image_offset

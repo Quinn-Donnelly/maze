@@ -4,7 +4,8 @@ extends TileMapLayer
 @onready var mazeGenorator: DFSMazeGenerator = $DFSMazeGenorator
 var winningLocation: Vector2i
 
-func _ready() -> void:
+## Generates the maze and renders on tilemap
+func generate_maze() -> void:
 	var mazeBitArray: Array[Array] = mazeGenorator.generate_dfs_maze(18-1,32-3)
 	
 	for row in mazeBitArray.size():
@@ -16,4 +17,5 @@ func _ready() -> void:
 
 ## Returns the global_position of winning location
 func get_winning_location() -> Vector2:
+	assert(winningLocation != null, "Must call generate_maze before calling for winning location")
 	return to_global(map_to_local(winningLocation))
