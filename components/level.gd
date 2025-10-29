@@ -23,9 +23,11 @@ func start_level() -> void:
 		currentWinZone.queue_free()
 	
 	player.global_position = spawnLocation.global_position
-	mazeWalls.generate_maze()
-	fog.generate_fog()
-	_create_winning_location(mazeWalls.get_winning_location())
+	if mazeWalls:
+		mazeWalls.generate_maze()
+		_create_winning_location(mazeWalls.get_winning_location())
+	if fog:
+		fog.generate_fog()
 
 func _create_winning_location(globalLocation: Vector2) -> void:
 	currentWinZone = winningZone.instantiate()
