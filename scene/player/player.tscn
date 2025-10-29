@@ -55,3 +55,14 @@ sprite = NodePath("VisionSprite")
 visible = false
 texture = SubResource("GradientTexture2D_ajqqa")
 metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 480
+limit_bottom = 272
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
