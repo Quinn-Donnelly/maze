@@ -21,7 +21,7 @@ script = ExtResource("3_d4kpu")
 script = ExtResource("4_1ylvq")
 
 [node name="Player" parent="." instance=ExtResource("5_xwhxf")]
-position = Vector2(24, 32)
+position = Vector2(45, 44)
 
 [node name="LevelCamera" type="Camera2D" parent="."]
 position = Vector2(240, 136.53755)
@@ -37,4 +37,4 @@ tiles = NodePath("../MazeWalls")
 player = NodePath("../Player")
 
 [node name="PlayerSpawnLocation" type="Marker2D" parent="."]
-position = Vector2(24, 32)
+position = Vector2(45, 43)

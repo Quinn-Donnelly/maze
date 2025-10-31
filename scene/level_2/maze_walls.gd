@@ -11,8 +11,13 @@ func generate_maze() -> void:
 	for row in mazeBitArray.size():
 		for col in mazeBitArray[row].size():
 			var cellCords = Vector2(4,3) if mazeBitArray[row][col] == 1 else Vector2(1,4)
-			set_cell(Vector2(row, col), 0, cellCords)
-		
+			var worldRow = row * 2
+			var worldCol = col * 2
+			set_cell(Vector2(worldRow, worldCol), 0, cellCords) 
+			set_cell(Vector2(worldRow+1, worldCol), 0, cellCords) 
+			set_cell(Vector2(worldRow, worldCol+1), 0, cellCords) 
+			set_cell(Vector2(worldRow+1, worldCol+1), 0, cellCords) 
+			
 	winningLocation = mazeGenorator.find_end_routes_greater_than(Vector2(1,1), mazeBitArray, 15).pick_random()
 
 ## Returns the global_position of winning location
