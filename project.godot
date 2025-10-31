@@ -36,7 +36,7 @@ window/vsync/vsync_mode=0
 movie_writer/video_quality=1.0
 movie_writer/ogv/encoding_speed=2
 movie_writer/movie_file="/home/quinn/godot-projects/maze/recordings/movie.avi"
-movie_writer/fps=144
+movie_writer/disable_vsync=true
 
 [input]
 
