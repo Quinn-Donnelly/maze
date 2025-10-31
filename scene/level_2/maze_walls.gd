@@ -19,6 +19,8 @@ func generate_maze() -> void:
 			set_cell(Vector2(worldRow+1, worldCol+1), 0, cellCords) 
 			
 	winningLocation = mazeGenorator.find_end_routes_greater_than(Vector2(1,1), mazeBitArray, 15).pick_random()
+	winningLocation.x *= 2
+	winningLocation.y *= 2
 
 ## Returns the global_position of winning location
 func get_winning_location() -> Vector2:

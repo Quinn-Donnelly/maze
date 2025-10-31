@@ -25,10 +25,11 @@ position = Vector2(45, 44)
 
 [node name="LevelCamera" type="Camera2D" parent="."]
 position = Vector2(240, 136.53755)
+zoom = Vector2(0.5, 0.5)
 limit_left = 0
 limit_top = 0
-limit_right = 704
-limit_bottom = 704
+limit_right = 1561
+limit_bottom = 1040
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
