@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bjcsjjwn6isui"]
+[gd_scene load_steps=16 format=3 uid="uid://bjcsjjwn6isui"]
 
 [ext_resource type="Script" uid="uid://csw6gojp2h78r" path="res://scene/player/player.gd" id="1_cm2cf"]
 [ext_resource type="Texture2D" uid="uid://d0fk2dggrrpjk" path="res://assets/Tiles/tile_0096.png" id="2_6smn3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://diih2lef04ak7" path="res://scene/fog/vision_component.gd" id="4_5lop3"]
 [ext_resource type="Script" uid="uid://bx6s2y2lmgf5f" path="res://components/hit_box.gd" id="5_ajqqa"]
 [ext_resource type="Script" uid="uid://bxgpsw2r5e4dj" path="res://components/combat_controller.gd" id="6_rkmeh"]
+[ext_resource type="Texture2D" uid="uid://cey7w4i83mnk4" path="res://assets/Tiles/tile_0106.png" id="7_732fb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i3pqv"]
 animations = [{
@@ -30,35 +31,44 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.90654206, 0.11214953)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lop3"]
-size = Vector2(4.0785294, 16.25)
-
 [sub_resource type="Animation" id="Animation_ajqqa"]
 resource_name = "basic_melee"
-length = 0.5
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("HitBox/CollisionShape2D:position")
+tracks/0/path = NodePath("Weapon/HitBox/CollisionShape2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.3, 0.33333334),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(5.625, -12.75), Vector2(13, -7), Vector2(13, -7), Vector2(3, 5)]
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("HitBox/CollisionShape2D:disabled")
+tracks/1/path = NodePath("Weapon:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.033333335, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
+"times": PackedFloat32Array(0, 0.06666668, 0.13333334, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5644233, 3.1253924, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Weapon:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666668, 0.13333334, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(8, -10), Vector2(14.000001, -4.9999995), Vector2(4, 6.0000005), Vector2(8, -10)]
 }
 
 [sub_resource type="Animation" id="Animation_rkmeh"]
@@ -66,26 +76,38 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("HitBox/CollisionShape2D:position")
+tracks/0/path = NodePath("Weapon/HitBox/CollisionShape2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(13, -7)]
+"update": 1,
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("HitBox/CollisionShape2D:disabled")
+tracks/1/path = NodePath("Weapon:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Weapon:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, -10)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_732fb"]
@@ -93,6 +115,9 @@ _data = {
 &"RESET": SubResource("Animation_rkmeh"),
 &"basic_melee": SubResource("Animation_ajqqa")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lop3"]
+size = Vector2(9.816245, 17.775322)
 
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -132,14 +157,6 @@ drag_vertical_enabled = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="HitBox" type="Area2D" parent="."]
-script = ExtResource("5_ajqqa")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(13, -7)
-shape = SubResource("RectangleShape2D_5lop3")
-disabled = true
-
 [node name="CombatController" type="Node" parent="."]
 script = ExtResource("6_rkmeh")
 
@@ -148,3 +165,16 @@ root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_732fb")
 }
+
+[node name="Weapon" type="Sprite2D" parent="."]
+position = Vector2(8, -10)
+texture = ExtResource("7_732fb")
+
+[node name="HitBox" type="Area2D" parent="Weapon"]
+position = Vector2(-8, 10)
+script = ExtResource("5_ajqqa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon/HitBox"]
+position = Vector2(8.091877, -10.887661)
+shape = SubResource("RectangleShape2D_5lop3")
+disabled = true

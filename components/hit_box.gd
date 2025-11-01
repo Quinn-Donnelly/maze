@@ -5,7 +5,7 @@ extends Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	get_parent().set_meta(Constants.HIT_COMPONENT, self)
+	owner.set_meta(Constants.HIT_COMPONENT, self)
 	area_entered.connect(self._on_hit)
 	
 func _on_hit(area: Area2D) -> void:
