@@ -1,12 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7a0d85csubta"]
+[gd_scene load_steps=9 format=3 uid="uid://c7a0d85csubta"]
 
 [ext_resource type="Script" uid="uid://c4tulqunso6ty" path="res://scene/enemy/enemy.gd" id="1_yijav"]
 [ext_resource type="Script" uid="uid://hqy6kpla8egj" path="res://components/hurt_box.gd" id="2_msiye"]
 [ext_resource type="Texture2D" uid="uid://yvqfj46q7onc" path="res://assets/Tiles/tile_0109.png" id="3_tu2m7"]
 [ext_resource type="Script" uid="uid://dbcvmexvelnb0" path="res://components/health_component.gd" id="4_tu2m7"]
+[ext_resource type="Script" uid="uid://bbb8ht8vu65ks" path="res://components/range_attack.gd" id="5_dd7y5"]
+[ext_resource type="PackedScene" uid="uid://cpeci78yimw0f" path="res://scene/range_attacks/fire_ball/fire_ball.tscn" id="6_u8b2j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dd7y5"]
 radius = 9.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8b2j"]
+size = Vector2(70, 59)
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_yijav")
@@ -22,3 +27,19 @@ script = ExtResource("4_tu2m7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_tu2m7")
+
+[node name="RangeAttack" type="Node2D" parent="." node_paths=PackedStringArray("vision", "rangeSpawnPoint")]
+script = ExtResource("5_dd7y5")
+vision = NodePath("RangeAttackVision")
+projectile = ExtResource("6_u8b2j")
+rangeSpawnPoint = NodePath("RangeSpawnPoint")
+metadata/_custom_type_script = "uid://bbb8ht8vu65ks"
+
+[node name="RangeAttackVision" type="Area2D" parent="RangeAttack"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RangeAttack/RangeAttackVision"]
+position = Vector2(45, -3.5)
+shape = SubResource("RectangleShape2D_u8b2j")
+
+[node name="RangeSpawnPoint" type="Marker2D" parent="RangeAttack"]
+position = Vector2(4.35, -0.9)
