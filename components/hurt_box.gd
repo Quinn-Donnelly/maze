@@ -7,7 +7,7 @@ func _ready() -> void:
 	area_entered.connect(self._on_hurt_entered)
 
 func _on_hurt_entered(area: Area2D) -> void:
-	if area is HitBox:
+	if area is HitBox and area.owner != owner:
 		if not get_parent().has_meta(Constants.HEALTH_COMPONENT):
 			push_warning("Hurt box has not health component")
 			return
