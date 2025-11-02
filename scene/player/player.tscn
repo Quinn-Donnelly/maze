@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bjcsjjwn6isui"]
+[gd_scene load_steps=19 format=3 uid="uid://bjcsjjwn6isui"]
 
 [ext_resource type="Script" uid="uid://csw6gojp2h78r" path="res://scene/player/player.gd" id="1_cm2cf"]
 [ext_resource type="Texture2D" uid="uid://d0fk2dggrrpjk" path="res://assets/Tiles/tile_0096.png" id="2_6smn3"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://bx6s2y2lmgf5f" path="res://components/hit_box.gd" id="5_ajqqa"]
 [ext_resource type="Script" uid="uid://bxgpsw2r5e4dj" path="res://components/combat_controller.gd" id="6_rkmeh"]
 [ext_resource type="Texture2D" uid="uid://cey7w4i83mnk4" path="res://assets/Tiles/tile_0106.png" id="7_732fb"]
+[ext_resource type="Script" uid="uid://dbcvmexvelnb0" path="res://components/health_component.gd" id="8_pisg7"]
+[ext_resource type="Script" uid="uid://hqy6kpla8egj" path="res://components/hurt_box.gd" id="9_oypl4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i3pqv"]
 animations = [{
@@ -30,6 +32,45 @@ gradient = SubResource("Gradient_8rb3k")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.90654206, 0.11214953)
+
+[sub_resource type="Animation" id="Animation_rkmeh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapon/HitBox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Weapon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Weapon:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, -10)]
+}
 
 [sub_resource type="Animation" id="Animation_ajqqa"]
 resource_name = "basic_melee"
@@ -71,45 +112,6 @@ tracks/2/keys = {
 "values": [Vector2(8, -10), Vector2(14.000001, -4.9999995), Vector2(4, 6.0000005), Vector2(8, -10)]
 }
 
-[sub_resource type="Animation" id="Animation_rkmeh"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Weapon/HitBox/CollisionShape2D:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Weapon:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Weapon:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(8, -10)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_732fb"]
 _data = {
 &"RESET": SubResource("Animation_rkmeh"),
@@ -118,6 +120,10 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5lop3"]
 size = Vector2(9.816245, 17.775322)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qjg4s"]
+radius = 4.0
+height = 12.0
 
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -178,3 +184,15 @@ script = ExtResource("5_ajqqa")
 position = Vector2(8.091877, -10.887661)
 shape = SubResource("RectangleShape2D_5lop3")
 disabled = true
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("8_pisg7")
+metadata/_custom_type_script = "uid://dbcvmexvelnb0"
+
+[node name="HurtBox" type="Area2D" parent="."]
+script = ExtResource("9_oypl4")
+metadata/_custom_type_script = "uid://hqy6kpla8egj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -6)
+shape = SubResource("CapsuleShape2D_qjg4s")

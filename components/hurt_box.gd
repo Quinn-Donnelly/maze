@@ -3,7 +3,7 @@ extends Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	get_parent().set_meta(Constants.HURT_COMPONENT, self)
+	owner.set_meta(Constants.HURT_COMPONENT, self)
 	area_entered.connect(self._on_hurt_entered)
 
 func _on_hurt_entered(area: Area2D) -> void:
