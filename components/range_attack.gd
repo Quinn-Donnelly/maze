@@ -1,7 +1,7 @@
 class_name RangeAttack
 extends Node2D
 
-@export var vision: Area2D
+@export var vision: AreaMonitor
 @export var max_range: float = 200
 @export var min_range: float = 10
 @export var projectile_speed: float = 200

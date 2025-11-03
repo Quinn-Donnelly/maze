@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7a0d85csubta"]
+[gd_scene load_steps=10 format=3 uid="uid://c7a0d85csubta"]
 
 [ext_resource type="Script" uid="uid://c4tulqunso6ty" path="res://scene/enemy/enemy.gd" id="1_yijav"]
 [ext_resource type="Script" uid="uid://hqy6kpla8egj" path="res://components/hurt_box.gd" id="2_msiye"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dbcvmexvelnb0" path="res://components/health_component.gd" id="4_tu2m7"]
 [ext_resource type="Script" uid="uid://bbb8ht8vu65ks" path="res://components/range_attack.gd" id="5_dd7y5"]
 [ext_resource type="PackedScene" uid="uid://cpeci78yimw0f" path="res://scene/range_attacks/fire_ball/fire_ball.tscn" id="6_u8b2j"]
+[ext_resource type="Script" uid="uid://b7v3dciijaa1g" path="res://components/area_monitor.gd" id="7_27n4c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dd7y5"]
 radius = 9.0
@@ -36,6 +37,7 @@ rangeSpawnPoint = NodePath("RangeSpawnPoint")
 metadata/_custom_type_script = "uid://bbb8ht8vu65ks"
 
 [node name="RangeAttackVision" type="Area2D" parent="RangeAttack"]
+script = ExtResource("7_27n4c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RangeAttack/RangeAttackVision"]
 position = Vector2(45, -3.5)
