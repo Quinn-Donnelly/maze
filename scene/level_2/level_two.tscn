@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ma1w0n0ycce2"]
+[gd_scene load_steps=11 format=3 uid="uid://ma1w0n0ycce2"]
 
 [ext_resource type="Script" uid="uid://2n7mem4vnklw" path="res://components/level.gd" id="1_fe18d"]
 [ext_resource type="PackedScene" uid="uid://dw2aiifxpi67v" path="res://scene/win_zone/win_zone.tscn" id="2_d4kpu"]
@@ -8,6 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://bjcsjjwn6isui" path="res://scene/player/player.tscn" id="5_xwhxf"]
 [ext_resource type="PackedScene" uid="uid://ck8pwssyo23km" path="res://scene/fog/fog_of_war.tscn" id="6_shjdg"]
 [ext_resource type="PackedScene" uid="uid://c7a0d85csubta" path="res://scene/enemy/enemy.tscn" id="8_d4kpu"]
+[ext_resource type="Script" uid="uid://ctopcdli5dmxq" path="res://components/kill_zone.gd" id="9_1ylvq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwhxf"]
+size = Vector2(1308, 787)
 
 [node name="LevelTwo" type="Node2D" node_paths=PackedStringArray("levelCamera")]
 script = ExtResource("1_fe18d")
@@ -43,3 +47,13 @@ position = Vector2(45, 43)
 
 [node name="Enemy" parent="." instance=ExtResource("8_d4kpu")]
 position = Vector2(55, 64)
+
+[node name="KillZone" type="Area2D" parent="."]
+collision_layer = 0
+script = ExtResource("9_1ylvq")
+metadata/_custom_type_script = "uid://ctopcdli5dmxq"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
+visible = false
+position = Vector2(501, 266.5)
+shape = SubResource("RectangleShape2D_xwhxf")

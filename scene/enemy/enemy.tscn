@@ -29,11 +29,12 @@ script = ExtResource("4_tu2m7")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_tu2m7")
 
-[node name="RangeAttack" type="Node2D" parent="." node_paths=PackedStringArray("vision", "rangeSpawnPoint")]
+[node name="RangeAttack" type="Node2D" parent="." node_paths=PackedStringArray("vision", "rangeSpawnPoint", "attackCooldown")]
 script = ExtResource("5_dd7y5")
 vision = NodePath("RangeAttackVision")
 projectile = ExtResource("6_u8b2j")
 rangeSpawnPoint = NodePath("RangeSpawnPoint")
+attackCooldown = NodePath("AttackCooldown")
 metadata/_custom_type_script = "uid://bbb8ht8vu65ks"
 
 [node name="RangeAttackVision" type="Area2D" parent="RangeAttack"]
@@ -45,3 +46,5 @@ shape = SubResource("RectangleShape2D_u8b2j")
 
 [node name="RangeSpawnPoint" type="Marker2D" parent="RangeAttack"]
 position = Vector2(4.35, -0.9)
+
+[node name="AttackCooldown" type="Timer" parent="RangeAttack"]
