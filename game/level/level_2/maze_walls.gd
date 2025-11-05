@@ -26,3 +26,9 @@ func generate_maze() -> void:
 func get_winning_location() -> Vector2:
 	assert(winningLocation != null, "Must call generate_maze before calling for winning location")
 	return to_global(map_to_local(winningLocation))
+
+func get_all_end_routes(mazeBitArray: Array[Array], exclude_winning_route: bool = true) -> Array[Vector2i]:
+	var routes = mazeGenorator.find_end_routes_greater_than(Vector2(1,1), mazeBitArray, 1)
+	if exclude_winning_route:
+		routes.erase(winningLocation)
+	return routes
