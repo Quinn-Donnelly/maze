@@ -17,10 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-EventBus="*res://components/event_bus.gd"
-Ui="*res://scene/ui/ui.tscn"
-GameManager="*res://scene/game_manager/game_manager.tscn"
-Constants="*res://components/constants.gd"
+EventBus="*res://autoload/event_bus.gd"
+Ui="*res://game/ui/ui.tscn"
+GameManager="*res://game/game_manager/game_manager.tscn"
+Constants="*res://autoload/constants.gd"
 
 [display]
 

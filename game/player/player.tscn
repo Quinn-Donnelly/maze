@@ -1,14 +1,14 @@
 [gd_scene load_steps=19 format=3 uid="uid://bjcsjjwn6isui"]
 
-[ext_resource type="Script" uid="uid://csw6gojp2h78r" path="res://scene/player/player.gd" id="1_cm2cf"]
+[ext_resource type="Script" uid="uid://csw6gojp2h78r" path="res://game/player/player.gd" id="1_cm2cf"]
 [ext_resource type="Texture2D" uid="uid://d0fk2dggrrpjk" path="res://assets/Tiles/tile_0096.png" id="2_6smn3"]
-[ext_resource type="Script" uid="uid://qkrjqwgoan8n" path="res://scene/player/camera_power.gd" id="3_6smn3"]
-[ext_resource type="Script" uid="uid://diih2lef04ak7" path="res://scene/fog/vision_component.gd" id="4_5lop3"]
-[ext_resource type="Script" uid="uid://bx6s2y2lmgf5f" path="res://components/hit_box.gd" id="5_ajqqa"]
-[ext_resource type="Script" uid="uid://bxgpsw2r5e4dj" path="res://components/combat_controller.gd" id="6_rkmeh"]
+[ext_resource type="Script" uid="uid://qkrjqwgoan8n" path="res://game/player/camera_power.gd" id="3_6smn3"]
+[ext_resource type="Script" uid="uid://diih2lef04ak7" path="res://game/fog/vision_component.gd" id="4_5lop3"]
+[ext_resource type="Script" uid="uid://bx6s2y2lmgf5f" path="res://systems/combat/scripts/hit_box.gd" id="5_ajqqa"]
+[ext_resource type="Script" uid="uid://bxgpsw2r5e4dj" path="res://game/player/combat_controller.gd" id="6_rkmeh"]
 [ext_resource type="Texture2D" uid="uid://cey7w4i83mnk4" path="res://assets/Tiles/tile_0106.png" id="7_732fb"]
-[ext_resource type="Script" uid="uid://dbcvmexvelnb0" path="res://components/health_component.gd" id="8_pisg7"]
-[ext_resource type="Script" uid="uid://hqy6kpla8egj" path="res://components/hurt_box.gd" id="9_oypl4"]
+[ext_resource type="Script" uid="uid://dbcvmexvelnb0" path="res://systems/combat/scripts/health_component.gd" id="8_pisg7"]
+[ext_resource type="Script" uid="uid://hqy6kpla8egj" path="res://systems/combat/scripts/hurt_box.gd" id="9_oypl4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i3pqv"]
 animations = [{

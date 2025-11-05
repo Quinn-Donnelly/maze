@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dw2aiifxpi67v"]
 
-[ext_resource type="Script" uid="uid://c0yqyum4gmxxi" path="res://scene/win_zone/win_zone.gd" id="1_ticby"]
+[ext_resource type="Script" uid="uid://c0yqyum4gmxxi" path="res://game/win_zone/win_zone.gd" id="1_ticby"]
 [ext_resource type="Texture2D" uid="uid://6irvl4piswph" path="res://assets/Tiles/tile_0099.png" id="4_uliaf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uliaf"]

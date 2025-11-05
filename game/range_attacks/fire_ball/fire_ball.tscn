@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cpeci78yimw0f"]
 
-[ext_resource type="Script" uid="uid://dhf75n77coij0" path="res://components/projectile.gd" id="1_8n3wb"]
+[ext_resource type="Script" uid="uid://dhf75n77coij0" path="res://game/range_attacks/projectile.gd" id="1_8n3wb"]
 [ext_resource type="Texture2D" uid="uid://u4bukjhty1nq" path="res://assets/Tiles/tile_0127.png" id="2_0r5wy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0bk7"]

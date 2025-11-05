@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=3 uid="uid://ma1w0n0ycce2"]
 
-[ext_resource type="Script" uid="uid://2n7mem4vnklw" path="res://components/level.gd" id="1_fe18d"]
-[ext_resource type="PackedScene" uid="uid://dw2aiifxpi67v" path="res://scene/win_zone/win_zone.tscn" id="2_d4kpu"]
-[ext_resource type="TileSet" uid="uid://clg8e14qg1g40" path="res://components/game_walls.tres" id="2_tjvy3"]
-[ext_resource type="Script" uid="uid://ca5rv2wuv443y" path="res://scene/level_2/maze_walls.gd" id="3_d4kpu"]
-[ext_resource type="Script" uid="uid://clsdjx0lbberf" path="res://components/dfs_maze_generator.gd" id="4_1ylvq"]
-[ext_resource type="PackedScene" uid="uid://bjcsjjwn6isui" path="res://scene/player/player.tscn" id="5_xwhxf"]
-[ext_resource type="PackedScene" uid="uid://ck8pwssyo23km" path="res://scene/fog/fog_of_war.tscn" id="6_shjdg"]
-[ext_resource type="PackedScene" uid="uid://c7a0d85csubta" path="res://scene/enemy/enemy.tscn" id="8_d4kpu"]
-[ext_resource type="Script" uid="uid://ctopcdli5dmxq" path="res://components/kill_zone.gd" id="9_1ylvq"]
+[ext_resource type="Script" uid="uid://2n7mem4vnklw" path="res://game/level/level.gd" id="1_fe18d"]
+[ext_resource type="PackedScene" uid="uid://dw2aiifxpi67v" path="res://game/win_zone/win_zone.tscn" id="2_d4kpu"]
+[ext_resource type="TileSet" uid="uid://clg8e14qg1g40" path="res://assets/game_walls.tres" id="2_tjvy3"]
+[ext_resource type="Script" uid="uid://ca5rv2wuv443y" path="res://game/level/level_2/maze_walls.gd" id="3_d4kpu"]
+[ext_resource type="Script" uid="uid://clsdjx0lbberf" path="res://systems/util/dfs_maze_generator.gd" id="4_1ylvq"]
+[ext_resource type="PackedScene" uid="uid://bjcsjjwn6isui" path="res://game/player/player.tscn" id="5_xwhxf"]
+[ext_resource type="PackedScene" uid="uid://ck8pwssyo23km" path="res://game/fog/fog_of_war.tscn" id="6_shjdg"]
+[ext_resource type="PackedScene" uid="uid://c7a0d85csubta" path="res://game/enemy/enemy.tscn" id="8_d4kpu"]
+[ext_resource type="Script" uid="uid://ctopcdli5dmxq" path="res://systems/util/kill_zone.gd" id="9_1ylvq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwhxf"]
 size = Vector2(1308, 787)
