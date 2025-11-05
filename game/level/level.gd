@@ -25,8 +25,16 @@ func start_level() -> void:
 	if mazeWalls:
 		mazeWalls.generate_maze()
 		_create_scene_at_location(mazeWalls.get_winning_location(), winningZone)
+		_generate_suprises()
 	if fog:
 		fog.generate_fog()
+
+func _generate_suprises() -> void:
+	if supriseScenes.is_empty():
+		return
+	var locations: Array[Vector2] = mazeWalls.get_all_end_routes()
+	for location in locations:
+		_create_scene_at_location(location, supriseScenes.pick_random())
 
 func _create_scene_at_location(globalLocation: Vector2, scene: PackedScene) -> void:
 	var instance = scene.instantiate()

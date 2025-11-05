@@ -17,6 +17,7 @@ size = Vector2(1308, 787)
 script = ExtResource("1_fe18d")
 levelCamera = NodePath("LevelCamera")
 winningZone = ExtResource("2_d4kpu")
+supriseScenes = Array[PackedScene]([ExtResource("8_d4kpu")])
 
 [node name="MazeWalls" type="TileMapLayer" parent="."]
 tile_set = ExtResource("2_tjvy3")

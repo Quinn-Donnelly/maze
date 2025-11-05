@@ -3,10 +3,11 @@ extends TileMapLayer
 
 @onready var mazeGenorator: DFSMazeGenerator = $DFSMazeGenorator
 var winningLocation: Vector2i
+var mazeBitArray: Array[Array]
 
 ## Generates the maze and renders on tilemap
 func generate_maze() -> void:
-	var mazeBitArray: Array[Array] = mazeGenorator.generate_dfs_maze(18-1,32-3)
+	mazeBitArray = mazeGenorator.generate_dfs_maze(18-1,32-3)
 	
 	for row in mazeBitArray.size():
 		for col in mazeBitArray[row].size():
@@ -27,8 +28,14 @@ func get_winning_location() -> Vector2:
 	assert(winningLocation != null, "Must call generate_maze before calling for winning location")
 	return to_global(map_to_local(winningLocation))
 
-func get_all_end_routes(mazeBitArray: Array[Array], exclude_winning_route: bool = true) -> Array[Vector2i]:
+func get_all_end_routes(exclude_winning_route: bool = true) -> Array[Vector2]:
 	var routes = mazeGenorator.find_end_routes_greater_than(Vector2(1,1), mazeBitArray, 1)
+	var global_route_positions: Array[Vector2] = []
 	if exclude_winning_route:
 		routes.erase(winningLocation)
-	return routes
+		
+	for route in routes:
+		route.x *= 2
+		route.y *= 2
+		global_route_positions.append(to_global(map_to_local(route)))
+	return global_route_positions
