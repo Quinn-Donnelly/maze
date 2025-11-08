@@ -31,11 +31,13 @@ func get_winning_location() -> Vector2:
 func get_all_end_routes(exclude_winning_route: bool = true) -> Array[Vector2]:
 	var routes = mazeGenorator.find_end_routes_greater_than(Vector2(1,1), mazeBitArray, 1)
 	var global_route_positions: Array[Vector2] = []
-	if exclude_winning_route:
-		routes.erase(winningLocation)
-		
 	for route in routes:
 		route.x *= 2
 		route.y *= 2
+		
+		if exclude_winning_route and route == winningLocation:
+			continue
+			
 		global_route_positions.append(to_global(map_to_local(route)))
+		
 	return global_route_positions
