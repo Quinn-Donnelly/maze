@@ -18,6 +18,8 @@ size = Vector2(70, 59)
 script = ExtResource("1_yijav")
 
 [node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 17
 script = ExtResource("2_msiye")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
@@ -38,6 +40,8 @@ attackCooldown = NodePath("AttackCooldown")
 metadata/_custom_type_script = "uid://bbb8ht8vu65ks"
 
 [node name="RangeAttackVision" type="Area2D" parent="RangeAttack"]
+collision_layer = 0
+collision_mask = 16
 script = ExtResource("7_27n4c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RangeAttack/RangeAttackVision"]

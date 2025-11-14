@@ -23,11 +23,11 @@ func _on_area_empty() -> void:
 	attackCooldown.stop()
 
 func _on_attack_cooldown_timeout() -> void:
-	var targets: Array[Area2D] = vision.get_areas_inside()
+	var targets: Array[Node2D] = vision.get_areas_inside()
 	if targets.size() == 0:
 		return
 	
-	var target: Area2D = targets.pick_random()
+	var target: Node2D = targets.pick_random()
 	_fire(target.global_position)
 
 func _check_range(target_global_position: Vector2) -> bool:

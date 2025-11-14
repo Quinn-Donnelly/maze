@@ -11,6 +11,8 @@ size = Vector2(18, 18)
 
 [node name="WinZone" type="Area2D"]
 y_sort_enabled = true
+collision_layer = 0
+collision_mask = 16
 script = ExtResource("1_ticby")
 
 [node name="CharecterSprite" type="Sprite2D" parent="."]

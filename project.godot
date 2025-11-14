@@ -79,6 +79,9 @@ melee_attack={
 [layer_names]
 
 2d_physics/layer_1="terrain"
+2d_physics/layer_2="enemies"
+2d_physics/layer_3="projectiles"
+2d_physics/layer_5="player"
 
 [rendering]
 
