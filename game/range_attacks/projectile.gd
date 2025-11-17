@@ -1,5 +1,5 @@
 class_name Projectile
-extends Area2D
+extends HitBox
 
 var velocity: Vector2 = Vector2(0,0)
 

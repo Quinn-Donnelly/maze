@@ -187,9 +187,12 @@ disabled = true
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("8_pisg7")
+max_health = 3
 metadata/_custom_type_script = "uid://dbcvmexvelnb0"
 
 [node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 7
 script = ExtResource("9_oypl4")
 metadata/_custom_type_script = "uid://hqy6kpla8egj"
 

@@ -10,6 +10,7 @@ size = Vector2(11, 4)
 collision_layer = 4
 collision_mask = 16
 script = ExtResource("1_8n3wb")
+damage = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5776109
