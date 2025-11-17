@@ -19,3 +19,6 @@ func take_damage(damage_amount: int) -> int:
 	if current_health <= 0:
 		health_depleted.emit()
 	return clamp(current_health, 0, INF)
+
+func reset() -> void:
+	current_health = max_health

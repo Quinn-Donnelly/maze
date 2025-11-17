@@ -16,6 +16,7 @@ func _physics_process(_delta: float) -> void:
 func _on_play_again() -> void:
 	set_process(true)
 	set_physics_process(true)
+	healthComponent.reset()
 
 func _on_health_depleted() -> void:
 	set_process(false)
