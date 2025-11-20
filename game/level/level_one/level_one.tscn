@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://bym3mnkq50od2"]
+[gd_scene load_steps=7 format=4 uid="uid://bym3mnkq50od2"]
 
 [ext_resource type="Script" uid="uid://2n7mem4vnklw" path="res://game/level/level.gd" id="1_fe41u"]
 [ext_resource type="PackedScene" uid="uid://dw2aiifxpi67v" path="res://game/win_zone/win_zone.tscn" id="2_skdlc"]
 [ext_resource type="TileSet" uid="uid://clg8e14qg1g40" path="res://assets/game_walls.tres" id="3_pw3hl"]
 [ext_resource type="PackedScene" uid="uid://bjcsjjwn6isui" path="res://game/player/player.tscn" id="4_lmfrh"]
 [ext_resource type="PackedScene" uid="uid://ck8pwssyo23km" path="res://game/fog/fog_of_war.tscn" id="5_ntn04"]
+[ext_resource type="PackedScene" uid="uid://c7a0d85csubta" path="res://game/enemy/enemy.tscn" id="6_skdlc"]
 
 [node name="LevelOne" type="Node2D" node_paths=PackedStringArray("levelCamera")]
 y_sort_enabled = true
@@ -19,7 +20,7 @@ tile_map_data = PackedByteArray("AAAUAAcAAAAEAAMAAAAVAAcAAAAEAAMAAAAWAAcAAAAEAAM
 tile_set = ExtResource("3_pw3hl")
 
 [node name="Player" parent="." instance=ExtResource("4_lmfrh")]
-position = Vector2(40, 48.18972)
+position = Vector2(142, 63.249012)
 
 [node name="PlayerSpawnLocation" type="Marker2D" parent="."]
 position = Vector2(40, 48)
@@ -37,3 +38,6 @@ position = Vector2(432, 244.96446)
 [node name="FogOfWar" parent="." node_paths=PackedStringArray("tiles", "player") instance=ExtResource("5_ntn04")]
 tiles = NodePath("../MazeWallsTileMapLayer")
 player = NodePath("../Player")
+
+[node name="Enemy" parent="." instance=ExtResource("6_skdlc")]
+position = Vector2(23, 36.142292)

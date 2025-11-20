@@ -37,6 +37,7 @@ vision = NodePath("RangeAttackVision")
 projectile = ExtResource("6_u8b2j")
 rangeSpawnPoint = NodePath("RangeSpawnPoint")
 attackCooldown = NodePath("AttackCooldown")
+visibilityCollisionMask = 17
 metadata/_custom_type_script = "uid://bbb8ht8vu65ks"
 
 [node name="RangeAttackVision" type="Area2D" parent="RangeAttack"]
