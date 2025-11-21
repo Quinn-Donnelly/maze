@@ -12,7 +12,7 @@
 radius = 9.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8b2j"]
-size = Vector2(70, 59)
+size = Vector2(195, 162)
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_yijav")
@@ -34,6 +34,7 @@ texture = ExtResource("3_tu2m7")
 [node name="RangeAttack" type="Node2D" parent="." node_paths=PackedStringArray("vision", "rangeSpawnPoint", "attackCooldown")]
 script = ExtResource("5_dd7y5")
 vision = NodePath("RangeAttackVision")
+max_range = 300.0
 projectile = ExtResource("6_u8b2j")
 rangeSpawnPoint = NodePath("RangeSpawnPoint")
 attackCooldown = NodePath("AttackCooldown")
@@ -46,7 +47,7 @@ collision_mask = 16
 script = ExtResource("7_27n4c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RangeAttack/RangeAttackVision"]
-position = Vector2(45, -3.5)
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_u8b2j")
 
 [node name="RangeSpawnPoint" type="Marker2D" parent="RangeAttack"]

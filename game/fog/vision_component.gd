@@ -8,7 +8,7 @@ func _ready() -> void:
 	get_parent().set_meta(Constants.VISION_COMPONENT, self)
 
 func getVisionSprite() -> Sprite2D:
-	return sprite
+	return sprite 
 
 func _exit_tree() -> void:
 	get_parent().remove_meta(Constants.VISION_COMPONENT)

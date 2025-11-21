@@ -149,8 +149,9 @@ sprite = NodePath("VisionSprite")
 
 [node name="VisionSprite" type="Sprite2D" parent="VisionComponent"]
 visible = false
+position = Vector2(0, -5.5)
+scale = Vector2(1.796875, 1.671875)
 texture = SubResource("GradientTexture2D_ajqqa")
-metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)

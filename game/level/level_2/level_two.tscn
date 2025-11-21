@@ -44,12 +44,10 @@ editor_draw_drag_margin = true
 [node name="FogOfWar" parent="." node_paths=PackedStringArray("tiles", "player") instance=ExtResource("6_shjdg")]
 tiles = NodePath("../MazeWalls")
 player = NodePath("../Player")
+vision_size = Vector2i(75, 75)
 
 [node name="PlayerSpawnLocation" type="Marker2D" parent="."]
 position = Vector2(45, 43)
-
-[node name="Enemy" parent="." instance=ExtResource("8_d4kpu")]
-position = Vector2(55, 64)
 
 [node name="KillZone" type="Area2D" parent="."]
 collision_layer = 0

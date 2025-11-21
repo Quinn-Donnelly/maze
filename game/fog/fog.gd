@@ -6,6 +6,7 @@ var format: Image.Format = Image.Format.FORMAT_RGBAH
 @export var fog_sprite: Sprite2D
 @export var tiles: TileMapLayer
 @export var player: Node2D
+@export var vision_size: Vector2i
 
 var world_dimensions: Vector2i
 var world_position: Vector2i
@@ -32,6 +33,7 @@ func generate_fog() -> void:
 	if vision_component == null:
 		push_error("must configure vision component for primary character")
 	vision_image = vision_component.getVisionSprite().texture.get_image()
+	vision_image.resize(vision_size.x, vision_size.y)
 	vision_image.convert(format)
 	vision_image_offset = vision_image.get_used_rect().size / 2
 	_update_fog()
