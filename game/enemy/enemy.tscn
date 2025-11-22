@@ -35,6 +35,7 @@ texture = ExtResource("3_tu2m7")
 script = ExtResource("5_dd7y5")
 vision = NodePath("RangeAttackVision")
 max_range = 300.0
+projectile_speed = 100.0
 projectile = ExtResource("6_u8b2j")
 rangeSpawnPoint = NodePath("RangeSpawnPoint")
 attackCooldown = NodePath("AttackCooldown")
@@ -54,3 +55,4 @@ shape = SubResource("RectangleShape2D_u8b2j")
 position = Vector2(4.35, -0.9)
 
 [node name="AttackCooldown" type="Timer" parent="RangeAttack"]
+wait_time = 1.5
